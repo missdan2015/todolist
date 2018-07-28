@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jqueury-todoist</title>
+  <link rel="stylesheet" href="static/index.css">
+    <script src="static/jquery-3.2.1.js"></script>
+  <script src="static/jqueryBase.js"></script>
+</head>
+<body>
+<div id="todoApp">
+  <h1>todos</h1>
+  <div class="section1">
+    <input type="text" id="todoInput"  placeholder="What needs to be done?" autofocus>
+  </div>
+  <div class="section2">
+    <ol id="todoList"></ol>      <!--定义一个列表，删除一个条目的时候顺序会重新计算-->
+  </div>
+  <div class="section3">
+    <span id="todoCount"></span>  <!--用于装填列表的总数-->
+    <span id="btns">
+      <button id="btnAll">All</button>
+      <button id="btnActive">Active</button>
+      <button id="btnComplete">Completed</button>
+      <button id="btnClearCompleted" style="visibility: hidden">Clear Completed</button>
+      <button id="btnCheckAll">checkAll</button>
+    </span>
+  </div>
+</div>
+<script src="static/jqueryBase.js"></script>
+</body>
+</html>

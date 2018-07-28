@@ -1,0 +1,152 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;  /*outline （轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。*/
+    /* border: none;  效果表现为表单的边框没了*/
+    list-style: none;
+    box-sizing: border-box;
+   /* -webkit-appearance: none;*/ /*清空复选框样式*/
+}
+/*------------------此处为分界线-------------------*/
+body{
+    width: 100%;
+    background: whitesmoke;
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+    color:pink;
+    font-size: 80px;
+}
+.section1{
+    width: 650px;
+    min-width: 300px;
+    background: white;
+    border: 1px solid #babbcd;
+    margin: 0 auto;
+}
+
+.section1 #todoInput{
+    width: 100%;
+    padding: 20px;
+    font-size: larger;
+}
+/* #todoList{  
+    margin-bottom: 0;
+    list-style-position:inside;
+} */
+#todoList li{
+    position: relative; /*为了使复选框和a根据此元素浮动定位*/
+    width: 650px;
+    min-width: 300px;
+    background: white;
+    font-size: 20px;
+    border: 1px solid #babbcd;
+    margin: 0 auto;
+    border-bottom: none;
+    padding: 10px;
+}
+
+#todoList li label{
+    /* white-space: pre-line; */
+    word-break: break-all;
+    margin-left: 40px;
+    padding: 5px 60px 5px 5px;
+    font-family: "微软雅黑";
+    font-weight: lighter;
+    display: block;
+}
+#todoList li .toggle{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid lightpink;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin:auto 0;
+    display: inline-block;
+}
+#todoList li .toggle:checked{
+    background-color: #00bfa5;
+}
+#todoList .todoRemove{
+    background-color: white;
+    visibility: hidden;
+    color:darkred;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    margin: auto 0; /*配合着达到上下居中*/
+    width: 20px;
+    height: 20px;
+}
+
+.section3{
+    height: 50px;
+    padding: 10px;
+}
+
+.section3 #todoCount{
+    margin-right: 50px;
+}
+.section3 #btns button{
+    cursor: pointer;
+    background-color: white;
+    padding: 2px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.section3 #btns button:hover{
+    border:1px solid #c1b7a8;
+}
+.section3 #btns button#btnCheckAll{
+    margin-left:50px;
+}
+.btn{
+    border:1px solid pink;
+}
+/*以下为vue补充样式*/
+#todoList li .todoDelete{
+    display: none;
+    background-color: white;
+    color:darkred;
+    cursor:pointer;
+    position:absolute;
+    top:0;
+    right:10px;
+    bottom:0;
+    margin: auto 0; /*配合着达到上下居中*/
+    width:20px;
+    height:20px;
+    transition: color 0.2s ease-out;
+}
+#todoList li:hover .todoDelete{
+    display: block;
+}
+#todoList li.completed label{
+    color:#d9d9d9;
+    text-decoration: line-through;
+}
+li.action a {
+    font-size: x-small;
+    color: #000;
+    text-decoration: none;
+    padding:2px;
+}
+li.action a:hover{
+    background-color: #ddecff;
+    border-radius: 5px;
+}
+.active{
+    border:1px solid pink;
+}
+.section3 #checkAll{
+    margin-left:120px;
+    background-color: #dde4ff;
+    border-radius: 5px;
+}

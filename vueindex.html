@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-todoists</title>
+    <script src="static/vue.min.js"></script>
+    <link rel="stylesheet" href="static/index.css">
+</head>
+<body>
+<div id="todoApp">
+    <h1>todos</h1>
+    <div class="section1">
+        <input type="text" id="todoInput" v-model="inputValue" placeholder="What needs to be done?" autofocus
+        @keyup.enter="addTodo">
+    </div>
+    <div class="section2" v-show="items.length">
+        <ol id="todoList" >
+            <li :class="{completed:item.isChecked}"  v-for="(item,index) in filteredList"  @dblclick='editItem(index)'>
+                <input type="checkbox" class="toggle" v-model="item.isChecked">
+                <label v-show='index!==editingIndex'>{{item.text}}</label>
+                <input type='text' style='margin-left:50px ' v-show='index==editingIndex' v-model='item.text'
+                 @blur='saveItem()' @keyup.enter='saveItem()' @keyup.esc='saveItem()'>
+                <button class="todoDelete" @click="removeTodo(item)">X</button>
+            </li>
+        </ol>
+    </div>
+    <div class="section3 section1" v-show="items.length">
+    <span id="todoCount" style="font-size: smaller">{{ noCheckedLength>1?noCheckedLength+' items ':noCheckedLength+' item '}}left</span>
+        <li class="action" style="display: inline">
+            <a :class="{active:visibility==='all'}" href="#all">All</a>
+            <a href="#unfinished" :class="{active:visibility==='unfinished'}">Active</a>
+            <a href="#finished" :class="{active:visibility==='finished'}">Completed</a>
+            <a v-show='items.length>noCheckedLength' @click='clearCompleted()'>clear Completed</a>
+            <a style='margin-left:50px' v-show='items.length'  @click='selectAll()'>not/checkALl</a>
+        </li>
+    </div>
+</div>
+<script src="static/vueIndex.js"></script>
+</body>
+</html>
